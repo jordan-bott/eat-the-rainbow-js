@@ -1,9 +1,0 @@
-Excalidraw
-lred
-lorange
-lyellow
-lgreen
-lblue
-lpurple
-lgrey
-tailwindcss
