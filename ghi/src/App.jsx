@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, Fragment } from "react";
 import foodList from "./data/foods";
 import FoodBox from "./components/FoodBox";
 
@@ -10,10 +10,10 @@ function App() {
       <p> Hi</p>
       {foodList.map((food) => {
         return (
-          <>
-            <p key={food.color}>{food.color}</p>
-            <FoodBox food={food} />
-          </>
+          <Fragment key={food.color}>
+            <p>{food.color}</p>
+            <FoodBox {...food} />
+          </Fragment>
         );
       })}
     </>

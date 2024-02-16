@@ -1,13 +1,10 @@
 /* eslint react/prop-types: 0 */
-import { ReactPropTypes } from "react";
-
-export default function FoodBox(props) {
-  let foodDict = props.food;
+export default function FoodBox({ background, border, highlight }) {
   return (
     <div
-      className={`flex flex-col border-${foodDict.darkColor} border-4 bg-${foodDict.lightColor} w-[15%] my-8 h-[70vh] rounded-xl`}
+      className={`flex flex-col ${background} ${border} border-4 w-[15%] my-8 h-[70vh] rounded-xl`}
     >
-      <p>{foodDict.color}</p>
+      <p>{highlight}</p>
     </div>
   );
 }
