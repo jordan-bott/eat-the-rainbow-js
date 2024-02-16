@@ -9,3 +9,16 @@
     @apply font-[Quicksand];
   }
 }
+
+:root {
+  --toastify-color-progress-light: linear-gradient(
+    to right,
+    #ffadad,
+    #ffbf70,
+    #fdef5e,
+    #b1f84f,
+    #a0c4ff,
+    #bdb2ff
+  );
+  --toastify-color-light: #f6f6f6;
+}
