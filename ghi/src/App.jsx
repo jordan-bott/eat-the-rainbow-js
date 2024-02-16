@@ -33,7 +33,7 @@ function App() {
           </p>
         </div>
         <div className="w-[40%] h-100">
-          <div className="border-grey border-4 bg-lgrey rounded-xl w-[80%] h-[80%] mt-8 ml-4 columns-4 p-2 content-around">
+          <div className="border-grey border-4 bg-lgrey rounded-xl w-[80%] h-[80%] mt-8 ml-4 columns-4 p-2 overflow-scroll scrollbar-thin scrollbar-thumb-rainbow scrollbar-thumb-rounded-lg">
             {mealList.map((food) => {
               return (
                 <p
@@ -46,6 +46,7 @@ function App() {
               );
             })}
           </div>
+          <button onClick={() => setMealList([])}>Clear All</button>
         </div>
       </div>
       <div className="flex flex-row place-content-center gap-x-2">

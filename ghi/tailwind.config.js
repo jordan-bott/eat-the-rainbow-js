@@ -1,3 +1,5 @@
+/* eslint no-undef: 0 */
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
@@ -18,7 +20,9 @@ export default {
       lpurple: "#BDB2FF50",
       grey: "#999999",
       lgrey: "#e9e8e8",
+      rainbow:
+        "linear-gradient(to right, #FFADAD, #FFBF70, #FDEF5E, #B1F84F, #A0C4FF, #BDB2FF)",
     },
   },
-  plugins: [],
+  plugins: [require("tailwind-scrollbar")({ nocompatible: true })],
 };
