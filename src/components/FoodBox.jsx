@@ -1,5 +1,6 @@
 /* eslint react/prop-types: 0 */
 export default function FoodBox({
+  text,
   background,
   border,
   highlight,
@@ -16,7 +17,7 @@ export default function FoodBox({
             <ul
               className={`px-3 ${highlight}`}
               key={food}
-              onClick={() => addFoodToMeal(food)}
+              onClick={() => addFoodToMeal({ name: food, textColor: text })}
             >
               {food}
             </ul>

@@ -9,8 +9,8 @@ function App() {
   const [mealList, setMealList] = useState([]);
 
   const addFoodToMeal = (food) => {
-    if (mealList.includes(food)) {
-      toast(`Uh oh, you already added ${food} to your list!`, {
+    if (mealList.find((f) => f.name === food.name)) {
+      toast(`Uh oh, you already added ${food.name} to your list!`, {
         position: "bottom-right",
       });
     } else {
@@ -33,16 +33,16 @@ function App() {
           </p>
         </div>
         <div className="w-[40%] h-100">
-          <div className="border-grey border-4 bg-lgrey rounded-xl w-[80%] h-[80%] mt-8 ml-4 columns-4 p-2 overflow-scroll scrollbar-thin scrollbar-thumb-rainbow scrollbar-thumb-rounded-lg">
+          <div className="flex flex-wrap border-grey border-4 bg-lgrey rounded-xl w-[80%] h-[200px] mt-8 ml-4 columns-4 p-2 overflow-scroll scrollbar-thin scrollbar-thumb-rainbow scrollbar-thumb-rounded-lg">
             {mealList.map((food) => {
               return (
-                <p
-                  className="hover:line-through"
-                  key={food}
+                <span
+                  className={`hover:line-through ${food.textColor} m-2`}
+                  key={food.name}
                   onClick={() => removeFoodFromMeal(food)}
                 >
-                  {food}
-                </p>
+                  {food.name}
+                </span>
               );
             })}
           </div>
