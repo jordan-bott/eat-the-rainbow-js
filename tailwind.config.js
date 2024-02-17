@@ -24,8 +24,5 @@ export default {
         "linear-gradient(to right, #FFADAD, #FFBF70, #FDEF5E, #B1F84F, #A0C4FF, #BDB2FF)",
     },
   },
-  plugins: [
-    require("tailwind-scrollbar")({ nocompatible: true }),
-    require("tailwindcss-highlights"),
-  ],
+  plugins: [require("tailwind-scrollbar")({ nocompatible: true })],
 };
