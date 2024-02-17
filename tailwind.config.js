@@ -20,6 +20,13 @@ export default {
       lpurple: "#BDB2FF50",
       grey: "#999999",
       lgrey: "#e9e8e8",
+      tred: "#FFADAD45",
+      torange: "#FFBF7045",
+      tyellow: "#FDEF5E45",
+      tgreen: "#B1F84F45",
+      tblue: "#A0C4FF45",
+      tpurple: "#BDB2FF45",
+      tgrey: "#e9e8e880",
       rainbow:
         "linear-gradient(to right, #FFADAD, #FFBF70, #FDEF5E, #B1F84F, #A0C4FF, #BDB2FF)",
     },
