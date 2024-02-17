@@ -37,7 +37,7 @@ function App() {
             {mealList.map((food) => {
               return (
                 <span
-                  className={`hover:line-through ${food.textColor} m-2`}
+                  className={`hover:line-through ${food.textColor} m-2 h-[30px]`}
                   key={food.name}
                   onClick={() => removeFoodFromMeal(food)}
                 >
