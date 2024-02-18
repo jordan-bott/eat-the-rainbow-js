@@ -11,57 +11,63 @@ function App() {
   const [colorList, setColorList] = useState([
     {
       color: "red",
-      on: "false",
+      on: false,
       onColor: "bg-red",
       offColor: "bg-tred",
       borderColor: "border-red",
     },
     {
       color: "orange",
-      on: "false",
+      on: false,
       onColor: "bg-orange",
       offColor: "bg-torange",
       borderColor: "border-orange",
     },
     {
       color: "yellow",
-      on: "false",
+      on: false,
       onColor: "bg-yellow",
       offColor: "bg-tyellow",
       borderColor: "border-yellow",
     },
     {
       color: "green",
-      on: "false",
+      on: false,
       onColor: "bg-green",
       offColor: "bg-tgreen",
       borderColor: "border-green",
     },
     {
       color: "blue",
-      on: "false",
+      on: false,
       onColor: "bg-blue",
       offColor: "bg-tblue",
       borderColor: "border-blue",
     },
     {
       color: "white",
-      on: "false",
+      on: false,
       onColor: "bg-grey",
       offColor: "bg-tgrey",
       borderColor: "border-grey",
     },
   ]);
 
-  const updateColorList = (color) => {
-    if (mealList.some((c) => c === color) && !colorList.includes(color)) {
-      setColorList([...colorList, color]);
-    } else if (!mealList.some((c) => c.color === color)) {
-      const updatedColorList = colorList.filter((c) => c !== color);
-      setColorList(updatedColorList);
+  const updateColorList = (color, newMealList) => {
+    const colorDict = colorList.reduce(
+      (acc, { color, ...colorData }) => ({ ...acc, [color]: colorData }),
+      {}
+    );
+    if (newMealList.some((food) => food.color === color)) {
+      colorDict[color].on = true;
     } else {
-      /* pass */
+      colorDict[color].on = false;
     }
+    const colorArray = Object.entries(colorDict).map(([color, colorData]) => ({
+      color,
+      ...colorData,
+    }));
+    setColorList(colorArray);
   };
 
   const addFoodToMeal = (food) => {
@@ -70,15 +76,16 @@ function App() {
         position: "bottom-right",
       });
     } else {
-      setMealList([...mealList, food]);
-      updateColorList(food.color);
+      const newMealList = [...mealList, food];
+      updateColorList(food.color, newMealList);
+      setMealList(newMealList);
     }
   };
 
   const removeFoodFromMeal = (food) => {
     const updatedList = mealList.filter((item) => item !== food);
+    updateColorList(food.color, updatedList);
     setMealList(updatedList);
-    updateColorList(food.color);
   };
 
   return (
@@ -107,7 +114,6 @@ function App() {
           <button onClick={() => setMealList([])}>Clear All</button>
           <div className="flex flex-row flex-wrap w-[80%] justify-around ml-4">
             {colorList.map((color) => {
-              console.log(color.on);
               return <ColorCheck {...color} key={color.color} />;
             })}
           </div>

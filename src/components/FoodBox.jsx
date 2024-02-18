@@ -6,6 +6,7 @@ export default function FoodBox({
   highlight,
   foods,
   addFoodToMeal,
+  color,
 }) {
   return (
     <div
@@ -17,7 +18,9 @@ export default function FoodBox({
             <ul
               className={`px-3 ${highlight}`}
               key={food}
-              onClick={() => addFoodToMeal({ name: food, textColor: text })}
+              onClick={() =>
+                addFoodToMeal({ name: food, textColor: text, color: color })
+              }
             >
               {food}
             </ul>
