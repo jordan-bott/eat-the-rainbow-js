@@ -1,5 +1,6 @@
 import { useState, Fragment } from "react";
 import foodList from "./data/foods";
+import colors from "./data/colors";
 import FoodBox from "./components/FoodBox";
 import title from "./assets/title.png";
 import ColorCheck from "./components/ColorCheck";
@@ -8,50 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const [mealList, setMealList] = useState([]);
-  const [colorList, setColorList] = useState([
-    {
-      color: "red",
-      on: false,
-      onColor: "bg-red",
-      offColor: "bg-tred",
-      borderColor: "border-red",
-    },
-    {
-      color: "orange",
-      on: false,
-      onColor: "bg-orange",
-      offColor: "bg-torange",
-      borderColor: "border-orange",
-    },
-    {
-      color: "yellow",
-      on: false,
-      onColor: "bg-yellow",
-      offColor: "bg-tyellow",
-      borderColor: "border-yellow",
-    },
-    {
-      color: "green",
-      on: false,
-      onColor: "bg-green",
-      offColor: "bg-tgreen",
-      borderColor: "border-green",
-    },
-    {
-      color: "blue",
-      on: false,
-      onColor: "bg-blue",
-      offColor: "bg-tblue",
-      borderColor: "border-blue",
-    },
-    {
-      color: "white",
-      on: false,
-      onColor: "bg-grey",
-      offColor: "bg-tgrey",
-      borderColor: "border-grey",
-    },
-  ]);
+  const [colorList, setColorList] = useState(colors);
 
   const updateColorList = (color, newMealList) => {
     const colorDict = colorList.reduce(
@@ -88,6 +46,11 @@ function App() {
     setMealList(updatedList);
   };
 
+  const clearMealList = () => {
+    setColorList(colors);
+    setMealList([]);
+  };
+
   return (
     <div className="h-screen w-screen">
       <div className="flex w-100">
@@ -111,7 +74,7 @@ function App() {
               );
             })}
           </div>
-          <button onClick={() => setMealList([])}>Clear All</button>
+          <button onClick={() => clearMealList()}>Clear All</button>
           <div className="flex flex-row flex-wrap w-[80%] justify-around ml-4">
             {colorList.map((color) => {
               return <ColorCheck {...color} key={color.color} />;
