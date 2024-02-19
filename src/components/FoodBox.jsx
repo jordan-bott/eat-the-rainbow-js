@@ -10,9 +10,11 @@ export default function FoodBox({
 }) {
   return (
     <div
-      className={`flex flex-col ${background} ${border} border-4 w-[15%] my-8 h-[60vh] rounded-xl`}
+      className={`flex flex-col ${background} ${border}  border-4 w-[15%] mt-8 h-[64vh] rounded-xl`}
     >
-      <div className="my-8 text-center text-lg">
+      <div
+        className={`my-6 text-center text-lg flex flex-col overflow-scroll scrollbar-thin scrollbar-thumb-rounded-lg`}
+      >
         {foods.map((food) => {
           return (
             <ul

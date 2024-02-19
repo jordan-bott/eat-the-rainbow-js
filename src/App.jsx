@@ -69,7 +69,11 @@ function App() {
         <div className="w-[60%]">
           <img src={title} className="w-[70%] mx-8 mt-4" />
           <p className="pl-20 text-xl">
-            Click on the foods you ate today below
+            Click on the foods you ate today below.{" "}
+          </p>
+          <p className="pl-20 text-xl pt-2">
+            Every color has different phytonutrients! Aim to eat at least one
+            food from each color every day.
           </p>
         </div>
         <div className="w-[40%] h-100">
@@ -85,7 +89,7 @@ function App() {
           </div>
         </div>
       </div>
-      <div className="flex flex-row place-content-center gap-x-2">
+      <div className="flex flex-row place-content-center gap-x-4">
         {foodList.map((food) => {
           return (
             <Fragment key={food.color}>

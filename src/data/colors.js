@@ -14,13 +14,6 @@ const colors = [
     borderColor: "border-orange",
   },
   {
-    color: "yellow",
-    on: false,
-    onColor: "bg-yellow",
-    offColor: "bg-tyellow",
-    borderColor: "border-yellow",
-  },
-  {
     color: "green",
     on: false,
     onColor: "bg-green",
