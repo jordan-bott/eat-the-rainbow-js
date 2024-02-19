@@ -10,6 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 function App() {
   const [mealList, setMealList] = useState([]);
   const [colorList, setColorList] = useState(colors);
+  const [allColorToast, setAllColorToast] = useState(false);
 
   const updateColorList = (color, newMealList) => {
     const colorDict = colorList.reduce(
@@ -20,6 +21,18 @@ function App() {
       colorDict[color].on = true;
     } else {
       colorDict[color].on = false;
+    }
+    let allColors = true;
+    for (let property in colorDict) {
+      if (colorDict[property].on === false) {
+        allColors = false;
+        setAllColorToast(false);
+        break;
+      }
+    }
+    if (allColors === true && allColorToast === false) {
+      toast("You did it! You ate every color today, great job!");
+      setAllColorToast(true);
     }
     const colorArray = Object.entries(colorDict).map(([color, colorData]) => ({
       color,
