@@ -17,14 +17,14 @@ export default function FoodBox({
         className={`my-6 text-center text-lg flex flex-col overflow-scroll scrollbar-thin scrollbar-thumb-rounded-lg`}
       >
         {foods.map((food) => {
-          let foodInList = "hover:cursor-pointer";
+          let foodInList = null;
           console.log(mealList.find((f) => f.name === food));
           mealList.find((f) => f.name === food)
-            ? (foodInList = "hover:cursor-not-allowed")
-            : (foodInList = "hover:cursor-pointer");
+            ? (foodInList = "hover:cursor-not-allowed line-through")
+            : (foodInList = `hover:cursor-pointer ${highlight}`);
           return (
             <ul
-              className={`px-3 ${highlight} ${foodInList}`}
+              className={`px-3 ${foodInList}`}
               key={food}
               onClick={() =>
                 addFoodToMeal({ name: food, textColor: text, color: color })
