@@ -7,6 +7,7 @@ export default function FoodBox({
   foods,
   addFoodToMeal,
   color,
+  mealList,
 }) {
   return (
     <div
@@ -16,9 +17,14 @@ export default function FoodBox({
         className={`my-6 text-center text-lg flex flex-col overflow-scroll scrollbar-thin scrollbar-thumb-rounded-lg`}
       >
         {foods.map((food) => {
+          let foodInList = "hover:cursor-pointer";
+          console.log(mealList.find((f) => f.name === food));
+          mealList.find((f) => f.name === food)
+            ? (foodInList = "hover:cursor-not-allowed")
+            : (foodInList = "hover:cursor-pointer");
           return (
             <ul
-              className={`px-3 ${highlight}`}
+              className={`px-3 ${highlight} ${foodInList}`}
               key={food}
               onClick={() =>
                 addFoodToMeal({ name: food, textColor: text, color: color })

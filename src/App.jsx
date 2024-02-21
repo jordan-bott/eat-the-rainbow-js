@@ -93,7 +93,11 @@ function App() {
         {foodList.map((food) => {
           return (
             <Fragment key={food.color}>
-              <FoodBox {...food} addFoodToMeal={addFoodToMeal} />
+              <FoodBox
+                {...food}
+                addFoodToMeal={addFoodToMeal}
+                mealList={mealList}
+              />
             </Fragment>
           );
         })}
