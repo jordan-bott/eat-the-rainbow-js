@@ -14,7 +14,7 @@ export default function FoodBox({
       className={`flex flex-col ${background} ${border}  border-4 w-[15%] mt-8 h-[64vh] rounded-xl`}
     >
       <div
-        className={`my-6 text-center text-lg flex flex-col overflow-scroll scrollbar-thin scrollbar-thumb-rounded-lg`}
+        className={`my-6 text-center text-lg flex flex-col overflow-auto scrollbar-thin scrollbar-thumb-rounded-lg`}
       >
         {foods.map((food) => {
           let foodInList = null;
