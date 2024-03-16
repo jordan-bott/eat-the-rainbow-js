@@ -4,6 +4,8 @@
 
 Eat the Rainbow is a webpage designed to help you eat at least one fruit or vegetable of each color each day. This is an informational webpage using information found from [Harvard](https://www.health.harvard.edu/blog/phytonutrients-paint-your-plate-with-the-colors-of-the-rainbow-2019042516501). Clicking on any fruit/vegetable will "add" to their list to see if they have a fruit/veggie from each color in their meal plan.
 
+This site is deployed! You can find it [here](https://jordan-bott.github.io/eat-the-rainbow-js/)
+
 ##### Future features:
 
 - Adding phytonutrient information
